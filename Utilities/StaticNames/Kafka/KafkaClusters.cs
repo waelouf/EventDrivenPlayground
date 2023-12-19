@@ -1,4 +1,4 @@
-﻿namespace StaticNames
+﻿namespace Common.Kafka
 {
     public class KafkaClusters
     {

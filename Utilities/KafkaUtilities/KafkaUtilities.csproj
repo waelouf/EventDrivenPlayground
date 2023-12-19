@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="KafkaFlow" Version="3.0.2" />
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection" Version="3.0.2" />
+  </ItemGroup>
+
 </Project>

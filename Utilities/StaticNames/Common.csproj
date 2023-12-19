@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Utilities\StaticNames\Common.csproj" />
-  </ItemGroup>
-
 </Project>

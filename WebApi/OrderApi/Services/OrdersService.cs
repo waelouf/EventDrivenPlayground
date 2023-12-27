@@ -1,5 +1,4 @@
-﻿using Contracts;
-using Contracts.Entities;
+﻿using Contracts.Entities;
 using Contracts.Events;
 using KafkaFlow.Producers;
 

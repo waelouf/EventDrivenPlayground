@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{E0C4D855-20B1-46F4-AB56-7AD01033E828}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{E0C4D855-20B1-46F4-AB56-7AD01033E828}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{39AC334C-416D-41EA-BF2A-7606D907FEBB}"
 EndProject
@@ -11,20 +11,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostedService", "HostedServ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{5AA4FF06-1149-4181-9E7C-72FB06BB6D98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaUtilities", "Utilities\KafkaUtilities\KafkaUtilities.csproj", "{31896182-2980-4DBD-AA76-F27CE253F4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaUtilities", "Utilities\KafkaUtilities\KafkaUtilities.csproj", "{31896182-2980-4DBD-AA76-F27CE253F4A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Utilities\StaticNames\Common.csproj", "{BAC7091D-29DD-4660-ADDF-5FC90AA7C8BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Utilities\StaticNames\Common.csproj", "{BAC7091D-29DD-4660-ADDF-5FC90AA7C8BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{F9C8FF02-949C-48B9-8631-6F91CAACF24F}"
 	ProjectSection(SolutionItems) = preProject
 		Docker\docker-compose.yml = Docker\docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Configuration", "Utilities\Common.Configuration\Common.Configuration.csproj", "{6EC2A739-3846-4605-87CB-662ABD796A92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Configuration", "Utilities\Common.Configuration\Common.Configuration.csproj", "{6EC2A739-3846-4605-87CB-662ABD796A92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderApi", "WebApi\OrderApi\OrderApi.csproj", "{1D12C740-9858-4CF2-861B-4C6809B379C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderApi", "WebApi\OrderApi\OrderApi.csproj", "{1D12C740-9858-4CF2-861B-4C6809B379C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.WebApi", "Utilities\Common.WebApi\Common.WebApi.csproj", "{01D9CD0B-FC4D-431A-9512-1C7DF385563C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.WebApi", "Utilities\Common.WebApi\Common.WebApi.csproj", "{01D9CD0B-FC4D-431A-9512-1C7DF385563C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "HostedService\NotificationService\NotificationService.csproj", "{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{01D9CD0B-FC4D-431A-9512-1C7DF385563C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01D9CD0B-FC4D-431A-9512-1C7DF385563C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01D9CD0B-FC4D-431A-9512-1C7DF385563C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{6EC2A739-3846-4605-87CB-662ABD796A92} = {5AA4FF06-1149-4181-9E7C-72FB06BB6D98}
 		{1D12C740-9858-4CF2-861B-4C6809B379C6} = {39AC334C-416D-41EA-BF2A-7606D907FEBB}
 		{01D9CD0B-FC4D-431A-9512-1C7DF385563C} = {5AA4FF06-1149-4181-9E7C-72FB06BB6D98}
+		{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7} = {0062ED7E-5755-45FC-AC23-76C0AC6A458A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D264D9CF-3F07-4C67-8D8B-DFC5F155B095}

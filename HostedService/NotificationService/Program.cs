@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 var services = new ServiceCollection();
 services.AddLogging(config => config.AddConsole());
 
+
 services.AddKafkaFlowHostedService(
     kafka => kafka
     .UseMicrosoftLog()
@@ -21,7 +22,7 @@ services.AddKafkaFlowHostedService(
             .WithGroupId(KafkaGroups.Notifications)
             .WithBufferSize(100)
             .WithWorkersCount(3)
-            .WithAutoOffsetReset(AutoOffsetReset.Earliest)
+            .WithAutoOffsetReset(KafkaFlow.AutoOffsetReset.Earliest)
             .AddMiddlewares(middlewares => middlewares
                 .AddDeserializer<JsonCoreDeserializer>()
                 .AddTypedHandlers(handlers =>
@@ -29,8 +30,6 @@ services.AddKafkaFlowHostedService(
                 ));
         });
     }));
-
-//Console.WriteLine("Hello, World!");
 
 var providers = services.BuildServiceProvider();
 var bus = providers.CreateKafkaBus();

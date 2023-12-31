@@ -6,8 +6,6 @@ using KafkaFlow.Serializer;
 using ConfigurationManager = Common.Configuration.ConfigurationManager;
 using IConfigurationManager = Common.Configuration.IConfigurationManager;
 using Serilog;
-using Serilog.Sinks.Kafka;
-using Serilog.Events;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,7 +37,7 @@ builder.Services.AddKafka(
         .AddProducer(KafkaProducers.PublishOrder, producer =>
             producer
             .DefaultTopic(KafkaTopics.OrdersTopic)
-            .AddMiddlewares(middlewares => middlewares.AddSerializer<JsonCoreSerializer>())
+            .AddMiddlewares(middlewares => middlewares.AddSerializer<NewtonsoftJsonSerializer>())
         );
     })
     );
@@ -56,15 +54,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-
 app.MapPost("/", (IOrdersService service, Order order) =>
 {
     var orderCreated = service.CreateOrder(order);
 
     for (int i = 0; i < 1_000; i++)
     {
-        Log.Warning("Warning @{i}", i);
+        Log.Warning("Warning {@i}", i);
     }
 
     return Results.Ok(orderCreated);
@@ -74,3 +70,4 @@ app.MapPost("/", (IOrdersService service, Order order) =>
 
 
 app.Run();
+Log.CloseAndFlush();

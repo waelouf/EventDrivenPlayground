@@ -6,7 +6,7 @@ namespace OrderApi.Services;
 
 public interface IOrdersService
 {
-    Task<bool> CreateOrder(Order order);
+    bool CreateOrder(Order order);
 }
 
 public class OrdersService : IOrdersService
@@ -18,7 +18,7 @@ public class OrdersService : IOrdersService
         _producerAccessor = producerAccessor;
     }
 
-    public async Task<bool> CreateOrder(Order order)
+    public bool CreateOrder(Order order)
     {
         // TODO: save order in DB.
 
@@ -27,7 +27,7 @@ public class OrdersService : IOrdersService
 
         var producer = _producerAccessor.GetProducer(Common.Kafka.KafkaProducers.PublishOrder);
 
-        await producer.ProduceAsync("key", orderCreated);
+        producer.ProduceAsync("key", orderCreated).Wait();
 
         return true;
     }

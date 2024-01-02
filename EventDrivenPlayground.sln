@@ -26,9 +26,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderApi", "WebApi\OrderApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.WebApi", "Utilities\Common.WebApi\Common.WebApi.csproj", "{01D9CD0B-FC4D-431A-9512-1C7DF385563C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "HostedService\NotificationService\NotificationService.csproj", "{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationService", "HostedService\NotificationService\NotificationService.csproj", "{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingAggregator", "HostedService\LoggingAggregator\LoggingAggregator.csproj", "{4D0EDE7B-0CD8-4B51-A646-086BE80D5890}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingAggregator", "HostedService\LoggingAggregator\LoggingAggregator.csproj", "{4D0EDE7B-0CD8-4B51-A646-086BE80D5890}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryApi", "WebApi\InventoryApi\InventoryApi.csproj", "{F0B1A489-D706-490F-A59A-994FB9A716F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedConfig", "SharedConfig", "{890CCD34-BECA-4BF7-A7FD-81EBA4DF88B2}"
+	ProjectSection(SolutionItems) = preProject
+		SharedConfig\appsettings.Development.json = SharedConfig\appsettings.Development.json
+		SharedConfig\appsettings.json = SharedConfig\appsettings.json
+		SharedConfig\Serilog.json = SharedConfig\Serilog.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +77,10 @@ Global
 		{4D0EDE7B-0CD8-4B51-A646-086BE80D5890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D0EDE7B-0CD8-4B51-A646-086BE80D5890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D0EDE7B-0CD8-4B51-A646-086BE80D5890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B1A489-D706-490F-A59A-994FB9A716F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B1A489-D706-490F-A59A-994FB9A716F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B1A489-D706-490F-A59A-994FB9A716F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B1A489-D706-490F-A59A-994FB9A716F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +94,7 @@ Global
 		{01D9CD0B-FC4D-431A-9512-1C7DF385563C} = {5AA4FF06-1149-4181-9E7C-72FB06BB6D98}
 		{A3664A9F-C46D-44C6-B73E-CC48A8E7DEF7} = {0062ED7E-5755-45FC-AC23-76C0AC6A458A}
 		{4D0EDE7B-0CD8-4B51-A646-086BE80D5890} = {0062ED7E-5755-45FC-AC23-76C0AC6A458A}
+		{F0B1A489-D706-490F-A59A-994FB9A716F9} = {39AC334C-416D-41EA-BF2A-7606D907FEBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D264D9CF-3F07-4C67-8D8B-DFC5F155B095}

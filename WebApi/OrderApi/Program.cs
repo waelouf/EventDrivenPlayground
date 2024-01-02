@@ -16,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("Serilog.json")
                 .Build();
 
 Log.Logger = new LoggerConfiguration()
@@ -71,3 +71,4 @@ app.MapPost("/", (IOrdersService service, Order order) =>
 
 app.Run();
 Log.CloseAndFlush();
+

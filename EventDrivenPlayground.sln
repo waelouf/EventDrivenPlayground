@@ -34,8 +34,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryApi", "WebApi\Inve
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedConfig", "SharedConfig", "{890CCD34-BECA-4BF7-A7FD-81EBA4DF88B2}"
 	ProjectSection(SolutionItems) = preProject
-		SharedConfig\appsettings.Development.json = SharedConfig\appsettings.Development.json
-		SharedConfig\appsettings.json = SharedConfig\appsettings.json
 		SharedConfig\Serilog.json = SharedConfig\Serilog.json
 	EndProjectSection
 EndProject

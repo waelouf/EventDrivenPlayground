@@ -8,12 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KafkaFlow" Version="3.0.2" />
-    <PackageReference Include="KafkaFlow.Extensions.Hosting" Version="3.0.2" />
-    <PackageReference Include="KafkaFlow.LogHandler.Microsoft" Version="3.0.2" />
-    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection" Version="3.0.2" />
+    <PackageReference Include="KafkaFlow" Version="3.0.7" />
+    <PackageReference Include="KafkaFlow.Extensions.Hosting" Version="3.0.7" />
+    <PackageReference Include="KafkaFlow.LogHandler.Microsoft" Version="3.0.7" />
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection" Version="3.0.7" />
     <PackageReference Include="KafkaFlow.Serializer" Version="2.5.1" />
-    <PackageReference Include="KafkaFlow.Serializer.JsonCore" Version="3.0.2" />
+    <PackageReference Include="KafkaFlow.Serializer.JsonCore" Version="3.0.7" />
     <PackageReference Include="KafkaFlow.TypedHandler" Version="2.5.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\Utilities\Common.Configuration\Common.Configuration.csproj" />
     <ProjectReference Include="..\..\Utilities\StaticNames\Common.csproj" />
   </ItemGroup>
 

@@ -16,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var config = new ConfigurationBuilder()
-                .AddJsonFile("Serilog.json")
+                .AddJsonFile("Serilog.json", optional: false, reloadOnChange: true)
                 .Build();
 
 Log.Logger = new LoggerConfiguration()
@@ -26,13 +26,16 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Services.AddSingleton<IConfigurationManager, ConfigurationManager>();
 builder.Services.AddSingleton<IOrdersService, OrdersService>();
+
 builder.Host.UseSerilog();
+
+var configMan = new ConfigurationManager();
 
 builder.Services.AddKafka(
     kafka => kafka
     .AddCluster(cluster =>
     {
-        cluster.WithBrokers(new[] { "localhost:9092" })
+        cluster.WithBrokers(new[] { $"{configMan.GetEnvironmentVariable("KafkaClusterIP")}:9092" })
         .CreateTopicIfNotExists(KafkaTopics.OrdersTopic, 1, 1)
         .AddProducer(KafkaProducers.PublishOrder, producer =>
             producer
@@ -56,13 +59,13 @@ app.UseHttpsRedirection();
 
 app.MapPost("/", (IOrdersService service, Order order) =>
 {
-    var orderCreated = service.CreateOrder(order);
-
     for (int i = 0; i < 1_000; i++)
     {
         Log.Warning("Warning {@i}", i);
     }
 
+    var orderCreated = service.CreateOrder(order);
+    
     return Results.Ok(orderCreated);
 })
 .WithOpenApi();

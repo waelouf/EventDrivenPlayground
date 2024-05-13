@@ -15,12 +15,12 @@
             },
             {
                 "Name": "Kafka",
-                "Args": {
-                    "batchSizeLimit": "50",
-                    "period": "5",
-                    "bootstrapServers": "localhost:9092",
-                    "topic": "logging"
-                }
+              "Args": {
+                "batchSizeLimit": "50",
+                "period": "5",
+                "bootstrapServers": "192.168.50.66:9092",
+                "topic": "logging"
+              }
             },
             {
                 "Name": "File",
@@ -30,12 +30,52 @@
                     "outputTemplate": "{Timestamp:G} {Message}{NewLine:1}{Exception:1}"
                 }
             },
+          {
+            "Name": "File",
+            "Args": {
+              "path": "C:\\temp\\log.json",
+              "rollingInterval": "Day",
+              "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog"
+            }
+          }
+            ,
             {
-                "Name": "File",
+                "Name": "Elasticsearch",
                 "Args": {
-                    "path": "C:\\temp\\log.json",
-                    "rollingInterval": "Day",
-                    "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog"
+                    "nodeUris": "http://192.168.50.66:9200/",
+                    "indexFormat": "logging-index-{0:yyyy.MM}",
+                    "templateName": "myCustomTemplate",
+                    "typeName": "myCustomLogEventType",
+                    "pipelineName": "myCustomPipelineName",
+                    "batchPostingLimit": 50,
+                    "batchAction": "Create",
+                    "period": 2,
+                    "inlineFields": true,
+                    "restrictedToMinimumLevel": "Warning",
+                    "bufferBaseFilename": "C:/temp/docker-elk-serilog-web-buffer",
+                    "bufferFileSizeLimitBytes": 5242880,
+                    "bufferLogShippingInterval": 5000,
+                    "bufferRetainedInvalidPayloadsLimitBytes": 5000,
+                    "bufferFileCountLimit": 31,
+                    "connectionglobalheaders": "authorization=bearer some-token;otherheader=other-header-value",
+                    "connectionTimeout": 5,
+                    "emitEventFailure": "WriteToSelfLog",
+                    "queueSizeLimit": "100000",
+                    "autoRegisterTemplate": true,
+                    "autoRegisterTemplateVersion": "ESv2",
+                    "overwriteTemplate": false,
+                    "registerTemplateFailure": "IndexAnyway",
+                    "deadLetterIndexName": "deadletter-{0:yyyy.MM}",
+                    "numberOfShards": 20,
+                    "numberOfReplicas": 10,
+                    "templateCustomSettings": [ { "index.mapping.total_fields.limit": "10000000" } ],
+                    "formatProvider": "My.Namespace.MyFormatProvider, My.Assembly.Name",
+                    "connection": "My.Namespace.MyConnection, My.Assembly.Name",
+                    "serializer": "My.Namespace.MySerializer, My.Assembly.Name",
+                    "connectionPool": "My.Namespace.MyConnectionPool, My.Assembly.Name",
+                    "customFormatter": "My.Namespace.MyCustomFormatter, My.Assembly.Name",
+                    "customDurableFormatter": "My.Namespace.MyCustomDurableFormatter, My.Assembly.Name",
+                    "failureSink": "My.Namespace.MyFailureSink, My.Assembly.Name"
                 }
             }
 

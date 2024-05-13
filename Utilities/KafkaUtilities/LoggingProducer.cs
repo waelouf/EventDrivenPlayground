@@ -10,7 +10,7 @@ public static class LoggingProducer
         services.AddKafka(
             kafka => kafka
             .AddCluster(cluster =>
-            cluster.WithBrokers(new[] { "localhost:9092" })
+            cluster.WithBrokers(new[] { "192.168.50.66:9092" })
             .CreateTopicIfNotExists(Common.Kafka.KafkaTopics.LoggingTopic, 1, 1)
             .AddProducer(KafkaProducers.PublishLogs, producer =>
             producer.DefaultTopic(KafkaTopics.LoggingTopic))

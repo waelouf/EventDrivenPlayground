@@ -12,10 +12,12 @@ public interface IOrdersService
 public class OrdersService : IOrdersService
 {
     private IProducerAccessor _producerAccessor;
+    private ILogger<OrdersService> _logger;
 
-    public OrdersService(IProducerAccessor producerAccessor)
+    public OrdersService(IProducerAccessor producerAccessor, ILogger<OrdersService> logger)
     {
         _producerAccessor = producerAccessor;
+        this._logger = logger;
     }
 
     public bool CreateOrder(Order order)
@@ -27,7 +29,15 @@ public class OrdersService : IOrdersService
 
         var producer = _producerAccessor.GetProducer(Common.Kafka.KafkaProducers.PublishOrder);
 
-        producer.ProduceAsync("key", orderCreated).Wait();
+        try
+        {
+            producer.ProduceAsync("key", orderCreated).Wait();
+        }
+        catch (Exception ex)
+        {
+            this._logger.LogError("Producer publising failed with message {@message}", ex.Message, ex);
+        }
+        
 
         return true;
     }
